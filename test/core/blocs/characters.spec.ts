@@ -17,8 +17,6 @@ describe("Characters bloc", () => {
   it("should load characters", async () => {
     vi.mocked(axios, true).get.mockResolvedValueOnce(characterPage1);
 
-    characterBloc.setState({ page: 1 });
-
     await characterBloc.loadCharacters();
 
     expect(characterBloc.getState().characters.length).toBe(20);
@@ -30,8 +28,6 @@ describe("Characters bloc", () => {
 
   it("should show pagination characters", async () => {
     vi.mocked(axios, true).get.mockResolvedValueOnce(characterPage2);
-
-    characterBloc.setState({ page: 1 });
 
     await characterBloc.nextPage();
 
@@ -55,8 +51,6 @@ describe("Characters bloc", () => {
 
   it("should handle error", async () => {
     vi.mocked(axios, true).get.mockResolvedValueOnce(characterError500);
-
-    characterBloc.setState({ page: 1 });
 
     await characterBloc.loadCharacters();
 

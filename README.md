@@ -73,6 +73,12 @@ Run tests
 $> npm run test
 ```
 
+## Other dependencies
+
+```sh
+$> npm install --save axios
+```
+
 ## Features
 
 - [x] Show pagination characters with persistent state.
