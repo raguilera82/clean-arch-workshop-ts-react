@@ -1,6 +1,8 @@
 # Clean Architecture Workshop with TypeScript + React
 
-## Steps
+API: https://rickandmortyapi.com/documentation/
+
+## Initial configuration
 
 ### Create scaffolding with vite
 
@@ -12,9 +14,11 @@ $> npm install
 
 ### Adding supports to Vitest
 
-Install dependency
+Install dependencies
+
 ```sh
 $> npm install -D vitest
+$> npm install -D @vitest/coverage-v8
 ```
 
 Update package.json scripts:
@@ -39,31 +43,28 @@ $> npm install -D jsdom
 Create config vite.config.ts
 
 ```ts
-import { defineConfig } from 'vitest/config'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vitest/config";
+import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
   test: {
-    environment: 'jsdom'
-  }
-})
-
+    environment: "jsdom",
+  },
+});
 ```
 
 Create a dumb test to prove test configuration:
 
 ```typescript
 //test/first.spec.ts
-import {describe, expect, it} from 'vitest';
+import { describe, expect, it } from "vitest";
 
-describe('First test', () => {
-
-    it('should works', () => {
-        expect(true).toBe(true);
-    })
-
-})
+describe("First test", () => {
+  it("should works", () => {
+    expect(true).toBe(true);
+  });
+});
 ```
 
 Run tests
@@ -72,3 +73,6 @@ Run tests
 $> npm run test
 ```
 
+## Features
+
+- [x] Show pagination characters with persistent state.
